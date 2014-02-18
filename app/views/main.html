@@ -3,12 +3,13 @@
     <li class="active"><a ng-href="#">Home</a></li>
     <li><a ng-href="#">About</a></li>
     <li><a ng-href="#">Contact</a></li>
+    <li><a href="#/tasks">Tasks</a></li>
   </ul>
-  <h3 class="text-muted">xsell pmgt</h3>
+  <h3 class="text-muted">xsell</h3>
 </div>
 
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
+  <h1>Hello Greg!</h1>
   <p class="lead">
     <img src="images/yeoman.png" alt="I'm Yeoman"><br>
     Always a pleasure scaffolding your apps.
@@ -30,7 +31,9 @@
   <h4>Karma</h4>
   <p>Spectacular Test Runner for JavaScript.</p>
 </div>
-
+<div ng-controller="MainCtrl">
+<div ng-repeat="it in awesomeThings">{{it}}</div>
+</div>
 <div class="footer">
   <p>♥ from the Yeoman team</p>
 </div>
