@@ -15,6 +15,10 @@ angular.module('xsellPmgtApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/tasks', {
+        templateUrl: 'views/tasks.html',
+        controller: 'TasksCtrl'
+      })  
       .when('/login', {
         authRequired: false, // if true, must log in before viewing this page
         templateUrl: 'views/login.html',
