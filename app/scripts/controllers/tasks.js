@@ -16,9 +16,9 @@ angular.module('xsellPmgtApp')
       $scope.taskText ='';
     };
     
-    $scope.deleteTask = function(item){
-      console.log("Trying to delete here");
-      $scope.tasks.$remove(item);
+    $scope.deleteTask = function(id){
+      console.log(id,"Trying to delete here");
+      $scope.tasks.$remove(id);
     };
     
     

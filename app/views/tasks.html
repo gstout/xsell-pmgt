@@ -8,16 +8,27 @@
   <h3 class="text-muted">xsell</h3>
 </div>
 
-<div ng-controller="TasksCtrl">
-  <div>TODO write content</div>
-  <form ng-submit="addTask()">
-    <input type="text" ng-model="taskText" size="30"
+<div class="panel panel-default" ng-controller="TasksCtrl">
+  
+  <div class="panel-heading"><h3 class="panel-title">TODO write content</h3></div>
+  <form ng-submit="addTask()" class="panel-body">
+    <div class="col-xs-6">
+    <input class="form-control" type="text" ng-model="taskText" size="30"
                placeholder="add new todo here">    
-    <input class="btn-primary" type="submit" value="add">
+    </div>
+    <button class="btn btn-primary" type="submit" value="add">
+      <span class="glyphicon glyphicon-plus"></span>
+      Add</button>
   </form>
-  <ul>
-    <li ng-repeat="task in tasks">{{$index}} | {{task}} | {{task.name}} <a ng-click="deleteTask(task.$getIndex()">[x]</a></li>
+  
+</div>
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="task in tasks | orderByPriority">
+      {{task.name}} w id {{task.$id}}
+      <button type="button" ng-click="deleteTask(task.$id)"  class="close" aria-hidden="true">&times;</button>
+
+    </li>
   </ul>
   
-  {{tasks}}
-</div>
+  <div class="well">{{tasks}}</div>
+
