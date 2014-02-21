@@ -1,0 +1,24 @@
+<div ng-include="'views/navbar.html'"></div>
+<div class="panel panel-default" ng-controller="AddLocationsCtrl">
+  
+  <div class="panel-heading"><h3 class="panel-title">Create a new location</h3></div>
+  <form ng-submit="addLocation()" class="panel-body">
+    <div class="col-xs-8"> 
+      <input class="form-control" type="text" ng-model="locationName" size="30" placeholder="add new location here"><br>    
+    </div>
+      
+    <div class="col-xs-8">
+      <textarea  class="form-control" rows="4" cols="50" ng-model="locationDescription" placeholder="describe the location here"></textarea>
+      <button class="btn btn-primary" type="submit" value="add">
+      <span class="glyphicon glyphicon-plus"></span>
+      Add</button>
+
+    </div>
+
+  </form>
+  
+</div>
+
+  
+
+

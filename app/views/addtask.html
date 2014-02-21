@@ -1,0 +1,29 @@
+<div ng-include="'views/navbar.html'"></div>
+<div class="panel panel-default" ng-controller="AddTasksCtrl">
+  
+  <div class="panel-heading"><h3 class="panel-title">Create a new task</h3></div>
+  <form ng-submit="addTask()" class="panel-body">
+    <div class="col-xs-8">
+      <select  class="form-control" ng-model="taskLocation" ng-options="location.name for location in locations">
+        <option value="">-- choose a location --</option>
+      </select><br>
+    </div>  
+    <div class="col-xs-8">
+      <input class="form-control" type="text" ng-model="taskName" size="30" placeholder="add new task here"><br>    
+    </div>
+      
+    <div class="col-xs-8">
+      <textarea  class="form-control" rows="4" cols="50" ng-model="taskDescription" placeholder="describe the task here"></textarea>
+      <button class="btn btn-primary" type="submit" value="add">
+      <span class="glyphicon glyphicon-plus"></span>
+      Add</button>
+
+    </div>
+
+  </form>
+  
+</div>
+
+  
+
+

@@ -1,25 +1,40 @@
 'use strict';
 
 angular.module('xsellPmgtApp')
-  .controller('TasksCtrl', function ($scope, $firebase) {
+  .controller('AddTasksCtrl', function ($scope, $firebase, $location) {
     var tasksRef = new Firebase("https://xsell-pmgt.firebaseio.com/tasks");
-    $scope.tasks = $firebase(tasksRef);
     
-//    $scope.tasks = [
-//      {id:1, name:'task1', done:false },
-//      {id:2, name:'task2', done:false },
-//      {id:3, name:'task3', done:false }
-//    ];
+
+    
+    var atask = {
+      name:$scope.taskText,
+      description:$scope.taskDescription,
+      done:false    
+      
+      
+    };
+    
+    
+    $scope.tasks = $firebase(tasksRef);
+
+    $scope.locations = [
+      {id:1, name:'Location1' },
+      {id:2, name:'Location2' }
+    ];
     
     $scope.addTask = function(){
-      $scope.tasks.$add({name:$scope.taskText ,done:false});
+      $scope.tasks.$add({
+        name:$scope.taskName,
+        description:$scope.taskDescription,
+        location:$scope.taskLocation.id,
+        done:false
+      });
       $scope.taskText ='';
+      $scope.taskDescription ='';
+      $scope.taskLocation = '';
+      $location.path('/tasks');
     };
     
-    $scope.deleteTask = function(id){
-      console.log(id,"Trying to delete here");
-      $scope.tasks.$remove(id);
-    };
     
     
   });
@@ -38,23 +53,30 @@ angular.module('xsellPmgtApp')
 //  }
 //}
 //  
-  
+  angular.module('xsellPmgtApp')
+  .controller('TasksCtrl', function ($scope, $firebase) {
+    var tasksRef = new Firebase("https://xsell-pmgt.firebaseio.com/tasks");
+    
+     $scope.tasks = $firebase(tasksRef);
+     
+     
+     // funtion to delete tasks fomr the list
+     $scope.deleteTask = function(id){
+       alert("Do you want to delete ".$scope.tasks.id);
+      //console.log(id,"Trying to delete here");
+      $scope.tasks.$remove(id);
+    };
+
+
+  });
   
   
   angular.module('xsellPmgtApp')
   .controller('DisplayCtrl', function ($scope) {
-    $scope.tasks = [
+    $scope.displays = [
       {id:1, name:'Display1' },
       {id:2, name:'Display2' },
       {id:3, name:'Display3' }
-    ];
-  });
-  
-  angular.module('xsellPmgtApp')
-  .controller('LocationCtrl', function ($scope) {
-    $scope.tasks = [
-      {id:1, name:'Location1' },
-      {id:2, name:'Location2' }
     ];
   });
   
