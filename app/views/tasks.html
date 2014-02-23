@@ -1,12 +1,11 @@
 <div ng-include="'views/navbar.html'"></div>
 <div  class="panel panel-default" ng-controller="TasksCtrl">
-  
-  
+{{auth}}  
   
   <ul class="list-group">
     <li class="list-group-item" ng-repeat="task in tasks | orderByPriority">
-      {{task.name}} w id {{task.$id}}
-      <button type="button" ng-click="deleteTask(task.$id)"  class="close" aria-hidden="true">&times;</button>
+      {{task.name}} | {{task.$id}}
+      <button type="button" ng-click="deleteTask(task.$id, task.name)"  class="close" aria-hidden="true">&times;</button>
 
     </li>
   </ul>

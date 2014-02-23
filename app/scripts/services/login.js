@@ -49,7 +49,7 @@ angular.module('angularfire.login', ['firebase', 'angularfire.firebase'])
         assertAuth();
         var cb = opts.callback || function() {};
         if( !opts.oldpass || !opts.newpass ) {
-          $timeout(function(){ cb('Please enter a password'); });
+          $timeout(function(){ cb('Please enter a password!'); });
         }
         else if( opts.newpass !== opts.confirm ) {
           $timeout(function() { cb('Passwords do not match'); });

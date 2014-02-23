@@ -1,7 +1,9 @@
-  angular.module('xsellPmgtApp')
+'use strict';
+  
+angular.module('xsellPmgtApp')
   .controller('LocationsCtrl', function ($scope, $firebase) {
-    var locationsRef = new Firebase("https://xsell-pmgt.firebaseio.com/locations");    
-     $scope.locations = $firebase(locationsRef);
+    var locationsRef = new Firebase('https://xsell-pmgt.firebaseio.com/locations');
+    $scope.locations = $firebase(locationsRef);
      
 //     $scope.locations = [
 //      {id:1, name:'Location1' },
@@ -10,16 +12,16 @@
 //    
      
      // funtion to delete tasks fomr the list
-     $scope.deleteLocation = function(id){
+    $scope.deleteLocation = function(id){
       // alert("Do you want to delete ".$scope.location.id);
       $scope.locations.$remove(id);
     };
   });
   
 
-  angular.module('xsellPmgtApp')
+angular.module('xsellPmgtApp')
   .controller('AddLocationsCtrl', function ($scope, $firebase, $location) {
-    var locationsRef = new Firebase("https://xsell-pmgt.firebaseio.com/locations");
+    var locationsRef = new Firebase('https://xsell-pmgt.firebaseio.com/locations');
     $scope.locations = $firebase(locationsRef);
 
 //    $scope.locations = [

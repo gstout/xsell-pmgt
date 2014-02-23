@@ -18,22 +18,22 @@ angular.module('xsellPmgtApp', [
       .when('/tasks', {
         templateUrl: 'views/tasks.html',
         controller: 'TasksCtrl'
-      })  
+      })
       .when('/tasks/add', {
         templateUrl: 'views/addtask.html',
         controller: 'AddTasksCtrl'
-      })  
+      })
       .when('/locations', {
         templateUrl: 'views/locations.html',
         controller: 'LocationsCtrl'
-      })  
+      })
       .when('/locations/add', {
         templateUrl: 'views/addlocation.html',
         controller: 'AddLocationsCtrl'
-      })  
+      })
       
       .when('/login', {
-        authRequired: false, // if true, must log in before viewing this page
+        //authRequired: false, // if true, must log in before viewing this page
         templateUrl: 'views/login.html',
         controller: 'LoginController'
       })

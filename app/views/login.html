@@ -1,8 +1,10 @@
+<div ng-include="'views/navbar.html'"></div>
 <!-- wait for auth to resolve (avoid flashing login page before redirect -->
-<div ng-cloak-auth class="row">
+<!--<div ng-cloak-auth class="row">-->
+  <div class="row">
     <div class="col-md-12">
 
-        <legend>You need to add a logout button!</legend>
+<!--        <legend>You need to add a logout button!</legend>
 <pre><code>
   // like this
   &lt;p&gt;&lt;button class="btn btn-default" ng-click="logout()"&gt;log out&lt;/button&gt;&lt;/p&gt;
@@ -11,18 +13,18 @@
   function($scope, simpleLogin) {
     $scope.logout = simpleLogin.logout;
   }
-</code></pre>
+</code></pre>-->
 
         <!-- examples for fun and profit -->
-        <!--<div ng-show-auth="login">{{auth.user|json}}</div>-->
-        <!--<div ng-show-auth="error,logout">Logged out</div>-->
-        <!--<div ng-show-auth="error">{{auth.error}}</div>-->
+        <div ng-show-auth="login">User:{{auth.user|json}}</div>
+        <div ng-show-auth="error,logout">Logged out</div>
+        <div ng-show-auth="error">error:{{auth.error}}</div>
         
 
         
         <p>&nbsp;</p>
         <form role="form">
-            <fielset>
+            <fieldset>
                 <legend>Email/Password</legend>
 
                 <div class="row">
@@ -48,7 +50,7 @@
                         <button class="btn btn-default" ng-cloak ng-show="createMode" ng-click="createMode = false">Cancel</button>
                     </div>
                 </div>
-            </fielset>
+            </fieldset>
         </form>
         
 
