@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('xsellPmgtApp')
-  .controller('AddTasksCtrl', function ($scope, $firebase, $location) {
+  .controller('AddTasksCtrl', function ($scope, $firebase, $location, simpleLogin) {
     var tasksRef = new Firebase('https://xsell-pmgt.firebaseio.com/tasks');
     
-
+    $scope.auth = simpleLogin.init();
+    $scope.user = $scope.auth.user;
     
     var atask = {
       name:$scope.taskText,
@@ -54,52 +55,20 @@ angular.module('xsellPmgtApp')
 //}
 //  
 angular.module('xsellPmgtApp')
-  .controller('TasksCtrl', function ($scope, $firebase, $firebaseSimpleLogin,simpleLogin) {
+  .controller('TasksCtrl', function ($scope, $firebase, simpleLogin ) {
     var tasksRef = new Firebase('https://xsell-pmgt.firebaseio.com/tasks');
-    $scope.loginObj = $firebaseSimpleLogin(tasksRef);
-   // $scope.loginObj2 = simpleLogin(tasksRef);
+ 
+    $scope.auth = simpleLogin.init();
+    var userget = $scope.auth.$getCurrentUser();
     
-    console.log("$scope.loginObj",$scope.loginObj);
-  //  console.log("$scope.loginObj2",$scope.loginObj2);
-     console.log("simpleLogin",simpleLogin);
+    userget.then(function(data){
+    console.log("userget", data); 
+    })
     
-    $scope.loginObj.$login('password', {
-   email: 'greg@grsdesign.com',
-   password: 'porkchop'
-}).then(function(user) {
-   console.log('Logged in as: ', user.uid);
-}, function(error) {
-   console.error('Login failed: ', error);
-});
+    console.log('auth',$scope.auth);
 
-var userget = $scope.loginObj.$getCurrentUser();
-console.log("userget", userget);
 
-//    simpleLogin.loginPassword('greg@grsdesign.com','porkchop',
-//    (function(user) { console.log('Logged in as: ', user.uid)}));
 
-//    
-//    
-//    var auth = new FirebaseSimpleLogin(tasksRef, function(error, user) {
-//      if (error) {
-//        // an error occurred while attempting login
-//        alert(error);
-//      } else if (user) {
-//        // user authenticated with Firebase
-//        alert('User ID: ' + user.id + ', Provider: ' + user.provider);
-//      } else {
-//        // user is logged out
-//      }
-//    });
-//  
-//console.log("auth",auth);
-//console.log("user",user);
-
-//    auth.login('password', {
-//      email: 'greg@grsdesign.com',
-//      password: 'porkchop'
-//    });
-//    
     
     $scope.tasks = $firebase(tasksRef);
      

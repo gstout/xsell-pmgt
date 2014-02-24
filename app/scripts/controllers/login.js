@@ -18,14 +18,14 @@ angular.module('xsellPmgtApp')
       else {
         simpleLogin.loginPassword($scope.email, $scope.pass, function(err, user) {
           $scope.err = err? err + '' : null;
-          console.log("error",$scope.err);
-          console.log("cb",cb);
           if( !err && cb ) {
             cb(user);
           }
         });
       }
     };
+
+    $scope.logout = simpleLogin.logout;
 
     $scope.createAccount = function() {
       function assertValidLoginAttempt() {

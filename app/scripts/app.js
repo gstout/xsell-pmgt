@@ -7,7 +7,8 @@ angular.module('xsellPmgtApp', [
   'ngRoute',
   'angularfire.firebase',
   'angularfire.login',
-  'firebase'
+  'firebase',
+  'simpleLoginTools'
 ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -33,7 +34,7 @@ angular.module('xsellPmgtApp', [
       })
       
       .when('/login', {
-        //authRequired: false, // if true, must log in before viewing this page
+        authRequired: false, // if true, must log in before viewing this page
         templateUrl: 'views/login.html',
         controller: 'LoginController'
       })
