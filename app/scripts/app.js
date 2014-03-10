@@ -8,7 +8,7 @@ angular.module('xsellPmgtApp', [
   'angularfire.firebase',
   'angularfire.login',
   'firebase',
-  'simpleLoginTools'
+ // 'simpleLoginTools'
 ])
   .config(function ($routeProvider) {
     $routeProvider
